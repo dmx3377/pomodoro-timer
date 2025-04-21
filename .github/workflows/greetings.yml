@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Hello and thank you for contributing! Please wait while a maintainer or one of the community helps with your problem. Be respectful and polite!"
+        pr-message: "Hello and thank you for contributing! One of the maintainers will check your request and decide whether to accept or reject it."
